@@ -4,15 +4,16 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
+	"quick_passive_recon/pkg/args_proc"
 )
 
-func PingServer(url string) {
-	fmt.Println("Pinging url", url)
+func PingServer(command *args_proc.Command) {
+	fmt.Println("Pinging url", command.Url)
 	var pcount int = 4
 
 	arg1 := "ping"
 	arg2 := fmt.Sprintf("-c %d", pcount)
-	arg3 := url
+	arg3 := command.Url
 
 	log.Println("Executing command:", arg1, arg2, arg3)
 

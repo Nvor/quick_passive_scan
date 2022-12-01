@@ -4,14 +4,15 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
+	"quick_passive_recon/pkg/args_proc"
 )
 
-func ScanWithNmap(url string, maxPort int) {
+func ScanWithNmap(command *args_proc.Command, maxPort int) {
 	fmt.Println("nmap: scanning ports 0 -", maxPort)
 
 	arg1 := "nmap"
 	arg2 := fmt.Sprintf("-p 0-%d", maxPort)
-	arg3 := url
+	arg3 := command.Url
 
 	log.Println("Executing command:", arg1, arg2, arg3)
 

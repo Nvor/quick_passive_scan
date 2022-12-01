@@ -11,11 +11,10 @@ import (
 func main() {
 	fmt.Println("Executing passive recon on url..")
 
-	var url string
+	//Get arguments after executable
 	args := os.Args[1:]
-
-	url = args_proc.ProcessArgs(args)
+	command := args_proc.ProcessArgs(args)
 	
-	ping_server.PingServer(url)
-	port_scan.ScanWithNmap(url, 5000)
+	ping_server.PingServer(command)
+	port_scan.ScanWithNmap(command, 5000)
 }

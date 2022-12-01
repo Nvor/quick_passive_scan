@@ -1,49 +1,52 @@
 package args_proc
 
 import (
+	"fmt"
 	"log"
-	//"os"
+	"os"
 )
 
 type Command struct {
-	url string
-	mode string
-	options []string
+	Url string
+	Mode string
+	Options []string
 }
 
-func ProcessArgs(args []string) string {
-	log.Println("Processing arguments:", args)
-
-	log.Println("size", len(args))
+func ProcessArgs(args []string) *Command {
 	if len(args) < 1 || len(args) > 2 {
 		log.Println("Error: Invalid number of arguments")
-		return "replace with error - exit program"
-	}
-
-	log.Println("DS", args[0])
-
-	for i := 0; i < len(args); i++ {
-		if i == 0 {
-			processUrlArg(args[i])
-		}
-	}
-
-	var url string
-
-	if args[0] != "" {
-		url = args[0]
-	} else {
-		log.Fatal("Error: url not specified as an argument")
 		os.Exit(3)
 	}
 
-	return url
+	command := Command{}
+	for i := 0; i < len(args); i++ {
+		switch i {
+		case 0:
+			processUrl(&command, args[i])
+		case 1:
+			processMode(&command, args[i])
+		}
+	}
+
+	fmt.Println("URL: ", command.Url)
+	fmt.Println("MODE: ", command.Mode)
+
+	return &command
 }
 
-func processUrlArg(urlArg string) string {
-	log.Println("process url")
+func processUrl(command *Command, urlArg string) {
+	if urlArg != "" {
+		command.Url = urlArg
+	} else {
+		fmt.Println("Invalid url argument. Exiting..")
+		os.Exit(3)
+	}
 }
 
-func processModeArg(modeArg string) {
-	log.Println("process mode")
+func processMode(command *Command, modeArg string) {
+	if modeArg != "" {
+		command.Mode = modeArg
+	} else {
+		fmt.Println("Invalid mode, using default.")
+	}
 }
