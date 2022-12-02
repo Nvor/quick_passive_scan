@@ -1,0 +1,14 @@
+# Modify settings to configure modes
+modes:
+  default:
+    Description: "Use utility defaults"
+    PingCount: 0
+    MaxPort: 0
+  fast:
+    Description: "For performing a quick scan"
+    PingCount: 1
+    MaxPort: 1023
+  thorough:
+    Description: "For performing a thorough scan"
+    PingCount: 4
+    MaxPort: 10000
