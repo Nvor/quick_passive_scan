@@ -28,8 +28,8 @@ func ProcessArgs(args []string) *Command {
 		}
 	}
 
-	fmt.Println("URL: ", command.Url)
-	fmt.Println("MODE: ", command.Mode)
+	fmt.Println("URL:", command.Url)
+	fmt.Println("MODE:", command.Mode)
 
 	return &command
 }

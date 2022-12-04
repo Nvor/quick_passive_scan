@@ -5,11 +5,12 @@ import (
 	"log"
 	"os/exec"
 	"quick_passive_recon/pkg/args_proc"
+	"quick_passive_recon/pkg/run_settings"
 )
 
-func PingServer(command *args_proc.Command) {
+func PingServer(command *args_proc.Command, settings *run_settings.Settings) {
 	fmt.Println("Pinging url", command.Url)
-	var pcount int = 4
+	pcount := settings.Mode.PingCount
 
 	arg1 := "ping"
 	arg2 := fmt.Sprintf("-c %d", pcount)

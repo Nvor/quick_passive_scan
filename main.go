@@ -12,12 +12,13 @@ import (
 func main() {
 	fmt.Println("Executing passive recon on url..")
 
-	//Get arguments after executable
+	//Get arguments and process them
 	args := os.Args[1:]
 	command := args_proc.ProcessArgs(args)
-	settings := yaml_config.GetRunConfig(command)
-	fmt.Println("MAIN: ", settings)
 
-	ping_server.PingServer(command)
-	port_scan.ScanWithNmap(command, 5000)
+	//Set run config based on command and settings
+	settings := yaml_config.GetRunConfig(command)
+
+	ping_server.PingServer(command, &settings)
+	port_scan.ScanWithNmap(command, &settings)
 }

@@ -5,10 +5,12 @@ import (
 	"log"
 	"os/exec"
 	"quick_passive_recon/pkg/args_proc"
+	"quick_passive_recon/pkg/run_settings"
 )
 
-func ScanWithNmap(command *args_proc.Command, maxPort int) {
-	fmt.Println("nmap: scanning ports 0 -", maxPort)
+func ScanWithNmap(command *args_proc.Command, settings *run_settings.Settings) {
+	fmt.Println("nmap: scanning ports 0 -", settings.Mode.MaxPort)
+	maxPort := settings.Mode.MaxPort
 
 	arg1 := "nmap"
 	arg2 := fmt.Sprintf("-p 0-%d", maxPort)
