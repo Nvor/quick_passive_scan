@@ -1,4 +1,4 @@
-# Modify settings to configure modes
+---
 modes:
   default:
     Description: "Use utility defaults"

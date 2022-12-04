@@ -5,8 +5,8 @@ import (
 	"os"
 	"quick_passive_recon/pkg/args_proc"
 	"quick_passive_recon/pkg/yaml_config"
-	"quick_passive_recon/ping_server"
-	"quick_passive_recon/port_scan"
+	"quick_passive_recon/utils/ping_server"
+	"quick_passive_recon/utils/port_scan"
 )
 
 func main() {
