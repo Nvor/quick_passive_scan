@@ -25,5 +25,5 @@ func ScanWithNmap(command *args_proc.Command, settings *run_settings.Settings) {
 		log.Fatal("FATAL:", err)
 	}
 
-	log.Println(string(stdout))
+	fmt.Println(string(stdout))
 }

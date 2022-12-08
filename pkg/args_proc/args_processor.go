@@ -28,8 +28,7 @@ func ProcessArgs(args []string) *Command {
 		}
 	}
 
-	fmt.Println("URL:", command.Url)
-	fmt.Println("MODE:", command.Mode)
+	printCommand(&command)
 
 	return &command
 }
@@ -49,4 +48,9 @@ func processMode(command *Command, modeArg string) {
 	} else {
 		fmt.Println("Invalid mode, using default.")
 	}
+}
+
+func printCommand(command *Command) {
+	fmt.Println("URL:", command.Url)
+	fmt.Println("MODE:", command.Mode)
 }
