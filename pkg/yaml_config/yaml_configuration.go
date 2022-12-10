@@ -20,13 +20,13 @@ import (
 // 	}
 // }
 
-func GetRunConfig(command *args_proc.Command) run_settings.Settings {
+func GetRunConfig(command *args_proc.Command) *run_settings.Settings {
 	settings := run_settings.Settings{}
 	mode := command.Mode
 	
 	getModeSettings(mode, &settings)
 
-	return settings
+	return &settings
 }
 
 func ShowConfig() {

@@ -1,14 +1,18 @@
 ---
 modes:
   default:
-    Description: "Use utility defaults"
+    Description: "Perform a scan using default options"
     PingCount: 0
     MaxPort: 0
   fast:
-    Description: "For performing a quick scan"
+    Description: "Perform a quick scan"
     PingCount: 1
     MaxPort: 1023
   thorough:
-    Description: "For performing a thorough scan"
+    Description: "Perform a thorough scan"
     PingCount: 4
+    MaxPort: 10000
+  invasive:
+    Description: "Perform an aggressive scan"
+    PingCount: 0
     MaxPort: 10000

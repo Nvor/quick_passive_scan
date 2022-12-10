@@ -8,6 +8,7 @@ import (
 	"quick_passive_recon/pkg/log_file"
 	"quick_passive_recon/utils/ping_server"
 	"quick_passive_recon/utils/port_scan"
+	"quick_passive_recon/utils/enumerate_dirs"
 )
 
 func Execute() {
@@ -23,8 +24,9 @@ func Execute() {
 	log_file.Log("Starting scan with parameters:" + command.Url)
 
 	//Start scan
-	ping_server.PingServer(command, &settings)
-	port_scan.ScanWithNmap(command, &settings)
+	ping_server.PingServer(command, settings)
+	port_scan.ScanWithNmap(command, settings)
+	enumerate_dirs.BruteForceDirs(command, settings)
 
 	log_file.Log("Finished scan")
 }
