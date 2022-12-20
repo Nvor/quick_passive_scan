@@ -22,9 +22,9 @@ func ProcessArgs(args []string) *Command {
 	for i := 0; i < len(args); i++ {
 		switch i {
 		case 0:
-			processUrl(&command, args[i])
+			ProcessUrl(&command, args[i])
 		case 1:
-			processMode(&command, args[i])
+			ProcessMode(&command, args[i])
 		}
 	}
 
@@ -33,7 +33,7 @@ func ProcessArgs(args []string) *Command {
 	return &command
 }
 
-func processUrl(command *Command, urlArg string) {
+func ProcessUrl(command *Command, urlArg string) {
 	if urlArg != "" {
 		command.Url = urlArg
 	} else {
@@ -42,7 +42,7 @@ func processUrl(command *Command, urlArg string) {
 	}
 }
 
-func processMode(command *Command, modeArg string) {
+func ProcessMode(command *Command, modeArg string) {
 	if modeArg != "" {
 		command.Mode = modeArg
 	} else {
