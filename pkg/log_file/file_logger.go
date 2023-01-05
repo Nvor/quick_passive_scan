@@ -1,6 +1,7 @@
 package log_file
 
 import (
+	"fmt"
 	"log"
 	"os"
 )
@@ -15,6 +16,15 @@ func Log(message string) {
 
 	log.SetOutput(file)
 	log.Println(message)
+}
+
+func LogCommand(cmdArgs ...string) {
+	cmdStr := "Executing command: "
+	for i := 0; i < len(cmdArgs); i++ {
+		cmdStr += fmt.Sprintf(" %s ", cmdArgs[i])
+	}
+
+	Log(cmdStr)
 }
 
 func LogError(message string) {

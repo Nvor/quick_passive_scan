@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
+	"quick_passive_recon/pkg/log_file"
 	"quick_passive_recon/pkg/args_proc"
 	"quick_passive_recon/pkg/run_settings"
 )
@@ -19,6 +20,8 @@ func BruteForceDirs(command *args_proc.Command, settings *run_settings.Settings)
 	arg4 := fmt.Sprintf("-w %s", word_list)
 
 	fmt.Println("Executing command:", arg1, arg2, arg3, arg4)
+	log_file.LogCommand(arg1, arg2, arg3, arg4)
+	
 	cmd := exec.Command(arg1, arg2, arg3, arg4)
 
 	stdout, err := cmd.Output()
